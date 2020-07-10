@@ -1,0 +1,36 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "./bin/LMC.exe",
+            "args": [
+                "addTwo.asm"
+            ],
+            "dependsOn": [
+                "build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "zig",
+            "args": [
+                "build-exe",
+                "src/main.zig",
+                "--output-dir",
+                "bin",
+                "--name",
+                "LMC",
+                "-lc"
+            ]
+        }
+    ]
+}
