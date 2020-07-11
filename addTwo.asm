@@ -9,8 +9,8 @@ start:
     BRA subtract
 
 subtract:
-    SUB one
     OUT
+    SUB one
     BRP subtract
     BRZ end
 
